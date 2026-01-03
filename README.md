@@ -63,12 +63,14 @@ npm run dev
 
 ### 配置前端 API 地址
 
-部署成功后，需要修改前端代码中的 API 地址，将 `App.jsx` 中的 `fetch` URL 替换为后端服务的实际域名。
+前端应用使用 Vite 环境变量 `VITE_API_URL` 来获取后端 API 地址。部署时，无需修改代码，只需在 Zeabur 控制台中配置环境变量即可：
 
-```javascript
-// 修改 frontend/src/App.jsx
-const response = await fetch('https://your-backend-zeabur-domain/api/questions');
-```
+1. 进入前端服务的 "设置" 页面
+2. 点击 "环境变量" 选项卡
+3. 添加环境变量 `VITE_API_URL`，值为后端服务的完整域名（如 `https://your-backend-zeabur-domain`）
+4. 保存配置，Zeabur 会自动重启服务
+
+本地开发时，默认使用 `http://localhost:3000` 作为 API 地址，无需额外配置。
 
 ## 功能说明
 

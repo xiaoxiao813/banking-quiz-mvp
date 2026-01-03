@@ -10,8 +10,9 @@ function App() {
     // 从后端API获取题目数据
     const fetchQuestions = async () => {
       try {
-        // 本地开发时使用http://localhost:3000，部署后使用实际域名
-        const response = await fetch('http://localhost:3000/api/questions');
+        // 使用环境变量获取API地址，本地开发默认使用http://localhost:3000
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        const response = await fetch(`${apiUrl}/api/questions`);
         if (!response.ok) {
           throw new Error('Failed to fetch questions');
         }
