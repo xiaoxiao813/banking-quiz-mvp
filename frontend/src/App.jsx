@@ -11,7 +11,7 @@ function App() {
     const fetchQuestions = async () => {
       try {
         // 使用环境变量获取API地址，本地开发默认使用http://localhost:3000
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        const apiUrl = 'https://banking-quiz-mvp-backend.zeabur.app';
         const response = await fetch(`${apiUrl}/api/questions`);
         if (!response.ok) {
           throw new Error('Failed to fetch questions');
